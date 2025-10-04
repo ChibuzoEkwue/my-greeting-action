@@ -27603,16 +27603,18 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 
 
-async function run() {
+const run = async () => {
 	try {
 		const name = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput("name") || "World";
-		const time = new Date().toLocaleTimeString();
+		const time = new Date().toLocaleString("en-US", {
+			timeZone: "Africa/Lagos",
+		});
 		const greeting = `Hello, ${name}! The time is ${time}`;
 		_actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput("greeting", greeting);
 	} catch (error) {
 		_actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
 	}
-}
+};
 
 run();
 
